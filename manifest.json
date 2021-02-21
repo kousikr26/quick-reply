@@ -1,0 +1,54 @@
+{
+    "manifest_version": 2,
+    "name": "Quick Reply",
+    "version": "1.0.0",
+    "description": "Quickly reply on web whatsapp with a keyboard shortcut",
+    "short_name": "Short Sample Name",
+    
+    
+    "browser_action": {
+        "default_icon": "logo.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    
+    "content_scripts": [
+        {
+            "matches": [
+                "https://web.whatsapp.com/"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "commands": {
+        "quick-reply-out": {
+            "suggested_key": {
+                "default": "Alt+W",
+                "mac": "Alt+W"
+            },
+            "description": "Quick Reply out"
+        },
+        "quick-reply-in": {
+            "suggested_key": {
+                "default": "Ctrl+Q",
+                "mac": "Ctrl+Q"
+            },
+            "description": "Quick Reply"
+        }
+       
+        
+        
+    }
+    
+    
+}
