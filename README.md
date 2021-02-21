@@ -9,6 +9,7 @@ This extension repurposes keyboard shortcuts for easy reply functionality
  - **Alt + Q** to reply to a received message (Pressing repeatedly cycles through previous messages in the stack)
 
  - **Alt + W** to reply to your own message (Pressing repeatedly cycles through previous messages in the stack)
+ - Pressing Esc will reinitialise the message stack 
 
  - Default shortcuts can be changed in manifest.json
 
