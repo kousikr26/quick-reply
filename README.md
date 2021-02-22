@@ -19,7 +19,9 @@ This extension repurposes keyboard shortcuts for easy reply functionality
 - Go to chrome://extensions/ and click on "load unpacked" button and choose path where repo is cloned
 
 ### Firefox
-The extension is available at https://addons.mozilla.org/en-GB/firefox/addon/quick-reply/
+The addon is available at https://addons.mozilla.org/en-GB/firefox/addon/quick-reply/
+
+
 
 
 In case of any bugs contact : kousikr26@gmail.com
