@@ -13,10 +13,13 @@ This extension repurposes keyboard shortcuts for easy reply functionality
 
  - Default shortcuts can be changed in manifest.json
 
-### Installation
+### Chrome
 
 - Clone this repo
 - Go to chrome://extensions/ and click on "load unpacked" button and choose path where repo is cloned
+
+### Firefox
+The addon is available at https://addons.mozilla.org/en-GB/firefox/addon/quick-reply/
 
 
 
