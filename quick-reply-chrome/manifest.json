@@ -33,15 +33,15 @@
     "commands": {
         "quick-reply-out": {
             "suggested_key": {
-                "default": "Alt+W",
-                "mac": "Alt+W"
+                "default": "Alt+Q",
+                "mac": "Alt+Q"
             },
             "description": "Quick Reply out"
         },
         "quick-reply-in": {
             "suggested_key": {
-                "default": "Ctrl+Q",
-                "mac": "Ctrl+Q"
+                "default": "Alt+W",
+                "mac": "Alt +W"
             },
             "description": "Quick Reply"
         }
