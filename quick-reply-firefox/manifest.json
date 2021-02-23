@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Quick Reply",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Quickly reply on web whatsapp with a keyboard shortcut",
     "short_name": "Short Sample Name",
     

@@ -31,20 +31,35 @@
         }
     ],
     "commands": {
-        "quick-reply-out": {
+        "reply-out": {
+            "suggested_key": {
+                "default": "Alt+W",
+                "mac": "Alt+W"
+            },
+            "description": "Reply to sent message"
+        },
+        "reply-out-back": {
+            "suggested_key": {
+                "default": "Alt+Shift+W",
+                "mac": "Alt+Shift+W"
+            },
+            "description": "Reply to sent message(toggle backward)"
+        },
+        "reply-in": {
             "suggested_key": {
                 "default": "Alt+Q",
                 "mac": "Alt+Q"
             },
-            "description": "Quick Reply out"
+            "description": "Reply to received message"
         },
-        "quick-reply-in": {
+        "reply-in-back": {
             "suggested_key": {
-                "default": "Alt+W",
-                "mac": "Alt +W"
+                "default": "Alt+Shift+Q",
+                "mac": "Alt+Shift+Q"
             },
-            "description": "Quick Reply"
+            "description": "Reply to received message(toggle backward)"
         }
+        
        
         
         

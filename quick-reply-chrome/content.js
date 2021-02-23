@@ -2,26 +2,69 @@ console.log("On WhatsApp");
 
 var clickEvent = document.createEvent('MouseEvents');
 clickEvent.initEvent('dblclick', true, true);
+window.InputEvent = window.Event || window.InputEvent;
 
-allMessagesIn = document.getElementsByClassName("message-in");
-n = allMessagesIn.length;
-allMessagesOut = document.getElementsByClassName("message-out");
-m = allMessagesOut.length;
+var inputEvent = new InputEvent('input', {
+    bubbles: true
+});
+var emojis = { "1": "😂", "2": "❤️", "3": "🙂", "4": "😢", "5": "😏", "6": "🥺", "7": "🥳", "8": "😘", "9": "😊", "0":"🤤"};
 
-document.addEventListener("keyup", function (event) {
+var allMessagesIn,allMessagesOut,n,m;
+var replying = false;
+
+
+function getIn(){
+    allMessagesIn = document.getElementsByClassName("message-in");
+    n = allMessagesIn.length;
+}
+function getOut(){
+    allMessagesOut = document.getElementsByClassName("message-out");
+    m = allMessagesOut.length;   
+}
+function changedChat(){
+    temp = document.getElementsByClassName("message-in");
+    if (temp.length > 0 && typeof (allMessagesIn) != "undefined" && allMessagesIn.length>0 && temp[0] != allMessagesIn[0]){
+        getIn();
+        getOut();
+        replying=false;
+    }
+}
+var textbox;
+document.addEventListener("keydown", function (event) {
     if (event.code == "Enter") {
-        allMessagesIn = document.getElementsByClassName("message-in");
-        n= allMessagesIn.length;
-        allMessagesOut = document.getElementsByClassName("message-out");
-        m = allMessagesOut.length;
+        getIn();
+        getOut();
+        replying=false;
     }
 
     else if (event.code =="Escape"){
-        allMessagesIn = document.getElementsByClassName("message-in");
-        n = allMessagesIn.length;
-        allMessagesOut = document.getElementsByClassName("message-out");
-        m = allMessagesOut.length;
+        getIn();
+        getOut();
+        replying=false;
     }
+    else if (event.altKey){
+        if(event.key in emojis){
+            footer = document.getElementsByTagName("footer")
+            if ( footer.length>0){
+                textbox = footer[0].getElementsByClassName("selectable-text");
+                if(textbox.length>0){
+                    textbox = textbox[0];
+                }
+            } 
+            
+            event.preventDefault();
+            console.log("Pressed "+emojis[event.key]);
+            
+            textbox.textContent += emojis[event.key];
+            
+            textbox.dispatchEvent(inputEvent);
+            document.execCommand('selectAll', false, null);
+            document.getSelection().collapseToEnd();
+            
+            
+        }
+    }
+    
 });
 
 chrome.runtime.onMessage.addListener(
@@ -30,29 +73,80 @@ chrome.runtime.onMessage.addListener(
         console.log(request.message);
         
         if(request.message=="reply-in"){
-            var elem = allMessagesIn[n - 1];
-            if (elem === undefined ) {
-                allMessagesIn = document.getElementsByClassName("message-in");
-                n = allMessagesIn.length;
-               
-                elem = allMessagesIn[n - 1];
+            changedChat();
+            if(!replying){
+                getIn();
+                getOut();
+                replying = true;
+            }
+            n -= 1
+            var elem = allMessagesIn[n];
+            if (elem === undefined) {
+                getIn();
+                getOut();
+                n -= 1
+                elem = allMessagesIn[n];
+                
             }
             elem.dispatchEvent(clickEvent);
+            
+  
+        }
+        else if (request.message == "reply-in-back") {
+            changedChat();
+            if (!replying) {
+                return;
+            }
+            n += 1
+            var elem = allMessagesIn[n];
+            if (elem === undefined) {
+                getIn();
+                getOut();
+                n += 1
+                elem = allMessagesIn[n];
 
-            n -= 1;
+            }
+            elem.dispatchEvent(clickEvent);
+            
+
         }
         else if(request.message == "reply-out"){
-            console.log("out triggered");
-            var elem = allMessagesOut[m - 1];
+            changedChat();
+            if (!replying) {
+                getIn();
+                getOut();
+                replying=true;
+            }
+            m -= 1
+            var elem = allMessagesOut[m];
             if (elem === undefined) {
-                
-                allMessagesOut = document.getElementsByClassName("message-out");
-                m = allMessagesOut.length;
-                elem = allMessagesOut[m - 1];
+                getIn();
+                getOut();
+                m -= 1
+                elem = allMessagesOut[m];
+
             }
             elem.dispatchEvent(clickEvent);
+            
+            
+        }
+        else  if (request.message == "reply-out-back") {
+            changedChat();
+            if (!replying) {
+                return;
+            }
+            m += 1
+            var elem = allMessagesOut[m];
+            if (elem === undefined) {
+                getIn();
+                getOut();
+                m += 1
+                elem = allMessagesOut[m];
 
-            m -= 1;
+            }
+            elem.dispatchEvent(clickEvent);
+            
+
         }
         
         sendResponse({ success: "true" });
