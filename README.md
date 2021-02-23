@@ -8,7 +8,9 @@ It also adds a emoji bar. Alt +<0-9> is each repurposed to an emoji
 
 Emoji bar (in order from 1 to 0):
 
-😂❤️🙂😢😏🥺🥳😘😊🤤
+1   2  3  4  5  6  7  8  9  0
+
+😂 ❤️ 🙂 😢 😏 🥺 🥳 😘 😊 🤤
 ### Default : 
  - **Alt + Q** to reply to a received message (Pressing repeatedly cycles through previous messages in the stack)
 
