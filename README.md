@@ -14,7 +14,6 @@ Emoji bar (in order from 1 to 0):
 
  - **Alt + W** to reply to your own message (Pressing repeatedly cycles through previous messages in the stack)
  - Pressing Esc will reinitialise the message stack 
-
  - Default shortcuts can be changed in manifest.json
 
 ### Chrome
