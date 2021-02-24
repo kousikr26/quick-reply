@@ -1,16 +1,18 @@
 # quick-reply
 
 
-Web Whatsapp has no default shortcuts for replying to messages and using the mouse is too much of a pain
+Web Whatsapp has no default shortcuts for replying to messages.
 
 This extension repurposes keyboard shortcuts for easy reply functionality
-It also adds a emoji bar. Alt +<0-9> is each repurposed to an emoji
 
-Emoji bar (in order from 1 to 0):
+It also adds an emoji bar.
 
-1   2  3  4  5  6  7  8  9  0
+Alt +<0-9> is each repurposed to an emoji
+
+Default emojis (in order from 1 to 0):
 
 😂 ❤️ 🙂 😢 😏 🥺 🥳 😘 😊 🤤
+
 ### Default : 
  - **Alt + Q** to reply to a received message (Pressing repeatedly cycles through previous messages in the stack)
 
