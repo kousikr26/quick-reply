@@ -23,7 +23,7 @@ Default emojis (in order from 1 to 0):
 ### Chrome
 
 - Clone this repo
-- Go to chrome://extensions/ and click on "load unpacked" button and choose path where repo is cloned
+- Go to chrome://extensions/ and click on "load unpacked" button and choose path of quick-reply-chrome folder
 
 ### Firefox
 The addon is available at https://addons.mozilla.org/en-GB/firefox/addon/quick-reply/
